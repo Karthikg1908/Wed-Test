@@ -14,7 +14,6 @@
   let userMusicPaused = false;
   let videoPlaybackActive = false;
   let videoInView = false;
-  let resumeMusicAfterVideo = false;
   let programmaticVideoPause = false;
 
   function getMusic() {
@@ -35,7 +34,6 @@
   }
 
   async function startMusic() {
-    if (videoPlaybackActive && weddingVideo && !weddingVideo.paused) return false;
     try {
       const audio = getMusic();
       audio.muted = false;
@@ -121,12 +119,6 @@
   async function toggleMusic() {
     if (getMusic().paused) {
       userMusicPaused = false;
-      if (weddingVideo && !weddingVideo.paused) {
-        programmaticVideoPause = true;
-        weddingVideo.pause();
-        videoPlaybackActive = false;
-        resumeMusicAfterVideo = false;
-      }
       await startMusic();
     } else {
       userMusicPaused = true;
@@ -142,29 +134,16 @@
   });
 
   window.addEventListener("pageshow", () => {
-    if ((!music || music.paused) && !videoPlaybackActive && !userMusicPaused) startMusic();
+    if ((!music || music.paused) && !userMusicPaused) startMusic();
   });
-
-  function pauseMusicForVideo() {
-    const audio = getMusic();
-    if (!audio.paused) {
-      if (!userMusicPaused) resumeMusicAfterVideo = true;
-      audio.pause();
-      updateMusicButton(false);
-      if (musicStatus) musicStatus.textContent = "Background music paused while the video plays.";
-    }
-  }
 
   async function beginVideoSession() {
     if (!weddingVideo || !videoInView || document.hidden) return;
     window.clearTimeout(advanceTimer);
-    pauseMusicForVideo();
     try {
       await weddingVideo.play();
     } catch {
       videoPlaybackActive = false;
-      if (resumeMusicAfterVideo && !userMusicPaused) await startMusic();
-      resumeMusicAfterVideo = false;
       scheduleNextPage();
     }
   }
@@ -175,10 +154,7 @@
       programmaticVideoPause = true;
       weddingVideo.pause();
     }
-    const shouldResumeMusic = resumeMusicAfterVideo && !userMusicPaused;
     videoPlaybackActive = false;
-    resumeMusicAfterVideo = false;
-    if (shouldResumeMusic) startMusic();
     scheduleNextPage();
   }
 
@@ -195,7 +171,6 @@
     weddingVideo.addEventListener("play", () => {
       videoPlaybackActive = true;
       window.clearTimeout(advanceTimer);
-      pauseMusicForVideo();
     });
     weddingVideo.addEventListener("pause", () => {
       if (programmaticVideoPause) {

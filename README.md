@@ -13,7 +13,7 @@ A lightweight, responsive South Indian wedding invitation with a warm burgundy, 
 - Live wedding and Beegara Oota countdown messages using India Standard Time
 - Mobile-friendly photo gallery and sharing controls
 - Responsive pre-wedding film with separate mobile and desktop encodes
-- Automatic music pause/resume while the film is playing
+- Continuous Kannada background music while the silent film is playing
 - Background music trimmed to 1 minute 22 seconds for faster loading
 - Reduced-motion support
 
@@ -67,7 +67,7 @@ Then visit http://localhost:8000/.
 
 ## Pre-wedding video
 
-The film section serves an 18 MB 720p version to phones and a 39 MB 1080p version to larger screens. Both use H.264 video, preserve the original AAC audio stream, and use `preload="metadata"` so the full video is not downloaded until it is needed.
+The film section serves a lightweight 720p version to phones and a 1080p version to larger screens. Both use H.264 video without a separate audio track and use `preload="metadata"` so the full video is not downloaded until it is needed. The website's Kannada background song continues while the film plays.
 
 The 414 MB camera master, `prewedding_teaser.mp4`, is intentionally excluded by `.gitignore`; do not upload it to GitHub Pages.
 
