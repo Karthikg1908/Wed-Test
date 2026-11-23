@@ -132,6 +132,7 @@ nav a:hover, .share-link:hover { color: var(--gold); }
 .film-heading { max-width: 760px; margin: 0 auto; }
 .film-heading h2 { margin: 0; color: var(--gold); font: 400 clamp(44px, 6vw, 76px)/.98 var(--serif); letter-spacing: -.03em; }
 .film-heading > p:last-child { margin: 18px 0 0; color: rgba(255,255,255,.75); font-size: 18px; }
+.video-stage { position: relative; width: min(100%, 1050px); margin: 0 auto; display: grid; place-items: center; overflow: hidden; }
 .video-placeholder, .wedding-video { width: min(100%, 1050px); aspect-ratio: 16 / 9; margin: 0 auto; border: 1px solid rgba(255,255,255,.3); box-shadow: 0 24px 60px rgba(22,7,8,.3); }
 .video-placeholder { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(rgba(74,19,23,.46), rgba(36,16,15,.72)), url("assets/moment-portrait.jpg") center 42% / cover no-repeat; }
 .wedding-video {
@@ -268,7 +269,25 @@ nav a:hover, .share-link:hover { color: var(--gold); }
   .film { gap: 20px; padding: 28px 14px; }
   .film-heading > p:last-child { font-size: 16px; }
   .video-placeholder { aspect-ratio: 4 / 5; max-height: 62svh; }
-  .wedding-video { width: min(100%, calc((100svh - 205px) * 16 / 9)); max-height: calc(100svh - 205px); aspect-ratio: 16 / 9; }
+  .video-stage {
+    isolation: isolate;
+    width: calc(100% + 28px);
+    height: clamp(320px, 48svh, 420px);
+    margin-inline: -14px;
+    background: var(--wine-deep);
+  }
+  .video-stage::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: -28px;
+    background: url("assets/prewedding-teaser-poster.jpg") center / cover no-repeat;
+    filter: blur(18px);
+    transform: scale(1.08);
+    opacity: .48;
+  }
+  .video-stage::after { content: ""; position: absolute; z-index: -1; inset: 0; background: rgba(36,16,15,.4); }
+  .video-stage .wedding-video { z-index: 1; width: 100%; height: 100%; max-height: none; aspect-ratio: 16 / 9; border-inline: 0; box-shadow: none; }
   .video-play { width: 58px; height: 58px; }
   .video-placeholder strong { font-size: 23px; }
   .closing h2 { font-size: clamp(34px, 11vw, 46px); }

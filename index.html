@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&amp;family=DM+Sans:wght@400;500;600&amp;family=Great+Vibes&amp;family=Noto+Serif+Kannada:wght@500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=58">
+  <link rel="stylesheet" href="style.css?v=59">
 </head>
 <body class="welcome-open">
   <div class="welcome-screen" id="welcomeScreen" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
@@ -100,11 +100,13 @@
         <h2 id="film-title">Their story in motion</h2>
         <p>A little more love and laughter</p>
       </div>
-      <video class="wedding-video" id="weddingVideo" controls muted playsinline preload="metadata" poster="assets/prewedding-teaser-poster.jpg" aria-label="Praveen and Kavya pre-wedding teaser">
-        <source src="assets/prewedding-teaser-720p.mp4" media="(max-width: 760px)" type="video/mp4">
-        <source src="assets/prewedding-teaser-1080p.mp4" type="video/mp4">
-        Your browser does not support embedded video.
-      </video>
+      <div class="video-stage">
+        <video class="wedding-video" id="weddingVideo" controls muted playsinline preload="metadata" poster="assets/prewedding-teaser-poster.jpg" aria-label="Praveen and Kavya pre-wedding teaser">
+          <source src="assets/prewedding-teaser-720p.mp4" media="(max-width: 760px)" type="video/mp4">
+          <source src="assets/prewedding-teaser-1080p.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </div>
     </section>
 
     <section class="venues-page" id="celebrate" aria-labelledby="venues-title">
