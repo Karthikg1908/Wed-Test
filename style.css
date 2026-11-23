@@ -281,7 +281,7 @@ nav a:hover, .share-link:hover { color: var(--gold); }
     position: absolute;
     z-index: -2;
     inset: -28px;
-    background: url("assets/prewedding-teaser-poster.jpg") center / cover no-repeat;
+    background: url("assets/prewedding-teaser-poster.jpg?v=2") center / cover no-repeat;
     filter: blur(18px);
     transform: scale(1.08);
     opacity: .48;

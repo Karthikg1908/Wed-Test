@@ -67,10 +67,10 @@ Then visit http://localhost:8000/.
 
 ## Pre-wedding video
 
-The film section serves a lightweight 720p version to phones and a 1080p version to larger screens. Both use H.264 video without a separate audio track and use `preload="metadata"` so the full video is not downloaded until it is needed. The website's Kannada background song continues while the film plays.
+The film section serves a 17 MB 720p version to phones and a 38 MB 1080p version to larger screens. Both use H.264 video without a separate audio track and use `preload="metadata"` so the full video is not downloaded until it is needed. The website's Kannada background song continues while the film plays.
 
-The 414 MB camera master, `prewedding_teaser.mp4`, is intentionally excluded by `.gitignore`; do not upload it to GitHub Pages.
+The 414 MB camera masters, including `Prewedding_Teaser_new.mp4`, are intentionally excluded by `.gitignore`; do not upload them to GitHub Pages.
 
 ## WhatsApp preview
 
-The Open Graph image is `assets/social-preview.jpg`, referenced with an absolute GitHub Pages URL for WhatsApp and other link previews. Social platforms may cache an older preview after updates.
+The Open Graph image is `assets/social-preview.jpg`, referenced with the absolute `https://karthikg1908.github.io/Wed-Test/` GitHub Pages URL for WhatsApp and other link previews. Social platforms may cache an older preview after updates; the versioned image URL prompts them to request the current card.
