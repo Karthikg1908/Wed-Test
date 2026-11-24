@@ -33,6 +33,7 @@ praveen-weds-kavya/
 │   ├── moment-scooter.jpg
 │   ├── moment-portrait.jpg
 │   ├── moment-cooking.jpg
+│   ├── hand-link-preview.jpg
 │   ├── prewedding-teaser-720p.mp4
 │   ├── prewedding-teaser-1080p.mp4
 │   ├── prewedding-teaser-poster.jpg
@@ -73,4 +74,4 @@ The 414 MB camera masters, including `Prewedding_Teaser_new.mp4`, are intentiona
 
 ## WhatsApp preview
 
-The Open Graph image is `assets/social-preview.jpg`, referenced with the absolute `https://karthikg1908.github.io/Wed-Test/` GitHub Pages URL for WhatsApp and other link previews. Social platforms may cache an older preview after updates; the versioned image URL prompts them to request the current card.
+The Open Graph image is `assets/hand-link-preview.jpg`, referenced with the absolute `https://karthikg1908.github.io/Wed-Test/` GitHub Pages URL for WhatsApp and other link previews. Social platforms may cache an older preview after updates; the versioned image URL prompts them to request the current card.

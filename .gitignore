@@ -1,0 +1,9 @@
+# Keep the 414 MB camera master locally; publish the optimized web versions in assets/.
+prewedding_teaser.mp4
+Prewedding_Teaser_new.mp4
+
+# High-resolution source photo; the optimized gallery copy is in assets/.
+social-preview.jpg.jpeg
+moment-scooter.jpg.jpeg
+moment-portrait.jpg.jpeg
+moment-cooking.jpg.jpeg
