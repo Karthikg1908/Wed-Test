@@ -59,16 +59,23 @@ nav a:hover, .share-link:hover { color: var(--gold); }
 .hero { position: relative; min-height: 760px; height: 100svh; color: white; overflow: hidden; }
 .hero-image { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center 38%; animation: hero-breathe 16s ease-in-out infinite alternate; }
 .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(36,16,15,.78), rgba(36,16,15,.13) 70%), linear-gradient(0deg, rgba(22,7,8,.6), transparent 45%); }
-.hero-copy { position: absolute; left: clamp(24px, 8vw, 120px); top: 50%; transform: translateY(-46%); max-width: 700px; }
+.hero-copy { position: absolute; left: 50%; top: 50%; width: min( min(700px, calc(100% - 48px)), 100% ); transform: translate(-50%, -46%); text-align: center; }
 .kannada { font-family: "Noto Serif Kannada", serif; font-size: clamp(17px, 2vw, 24px); letter-spacing: .03em; }
 .eyebrow { margin: 0 0 18px; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
 .hero h1 { margin: 0; font-family: var(--script); font-size: clamp(76px, 10vw, 148px); font-weight: 400; line-height: .92; letter-spacing: 0; }
 .desktop-name-break { display: none; }
 .hero h1 em, .signature em { color: var(--gold); font-weight: 400; }
-.hero-date { margin: 30px 0 34px; font-size: 15px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+.hero h1 span, .hero h1 em { display: inline-block; opacity: 0; animation: hero-name-in 1s cubic-bezier(.2,.75,.2,1) both; }
+.hero h1 span:first-of-type { animation-delay: .48s; }
+.hero h1 em { animation-delay: .64s; }
+.hero h1 span:last-of-type { animation-delay: .8s; }
+.hero-date { position: relative; display: table; margin: 30px auto 34px; padding-bottom: 10px; font-size: 15px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+.hero-date::after { content: ""; position: absolute; left: 50%; bottom: 0; width: min(100%, 230px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: translateX(-50%) scaleX(0); transform-origin: center; animation: hero-date-line 1s ease .95s forwards; }
 .hero-scroll-cue { display: inline-flex; width: 34px; height: 42px; align-items: center; justify-content: center; color: var(--champagne); text-decoration: none; opacity: .9; animation: hero-scroll-bob 1.6s ease-in-out infinite; }
 .hero-scroll-cue span { width: 13px; height: 13px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translate(-2px, -2px); }
 @keyframes hero-scroll-bob { 0%, 100% { transform: translateY(0); opacity: .65; } 50% { transform: translateY(7px); opacity: 1; } }
+@keyframes hero-name-in { from { opacity: 0; transform: translateY(22px) scale(.97); filter: blur(5px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+@keyframes hero-date-line { to { transform: translateX(-50%) scaleX(1); } }
 .primary-button { display: inline-flex; align-items: center; gap: 30px; padding: 16px 22px; background: white; color: var(--wine); border: 1px solid white; text-decoration: none; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
 .primary-button:hover { background: var(--gold); border-color: var(--gold); color: var(--wine-deep); }
 .hero-place { position: absolute; right: clamp(22px, 5vw, 72px); bottom: 30px; margin: 0; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
@@ -178,7 +185,7 @@ nav a:hover, .share-link:hover { color: var(--gold); }
 
 @media (min-width: 761px) {
   .desktop-name-break { display: block; }
-  .hero h1 em { display: block; width: max-content; margin: 2px 0 3px 36%; line-height: .62; }
+  .hero h1 em { display: block; width: max-content; margin: 2px auto 3px; line-height: .62; }
   .hero, .intro, .venues-page, .moments, .film, .closing { min-height: 100svh; scroll-snap-align: start; }
   .intro, .venues-page, .closing { display: grid; align-content: center; }
 }
@@ -234,10 +241,10 @@ nav a:hover, .share-link:hover { color: var(--gold); }
   .hero-image { object-position: 59% center; }
   body::before { background-position: 59% center; }
   .hero-shade { background: linear-gradient(0deg, rgba(36,16,15,.78), rgba(36,16,15,.09) 70%); }
-  .hero-copy { left: auto; right: 22px; top: auto; bottom: 78px; width: calc(100% - 44px); text-align: right; transform: none; }
-  .hero h1 { font-size: clamp(62px, 20vw, 92px); max-width: 620px; }
+  .hero-copy { left: 50%; right: auto; top: 50%; bottom: auto; width: calc(100% - 44px); text-align: center; transform: translate(-50%, -50%); }
+  .hero h1 { font-size: clamp(62px, 20vw, 92px); max-width: 100%; }
   .hero h1 span { display: block; }
-  .hero h1 em { display: block; width: max-content; margin: 2px 34% 3px auto; font-size: .7em; line-height: .55; }
+  .hero h1 em { display: block; width: max-content; margin: 2px auto 3px; font-size: .7em; line-height: .55; }
   .hero-date { margin: 24px 0; font-size: 12px; }
   .hero-copy > .primary-button { display: none; }
   .hero-place { display: none; }
